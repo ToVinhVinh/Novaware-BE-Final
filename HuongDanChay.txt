@@ -1,0 +1,58 @@
+HƯỚNG DẪN SỬ DỤNG PROJECT
+================================================================
+A. Thực hiện ứng dụng Streamlit (Mục đích: Demo kiểm thử thuật toán và mô hình, theo dõi các bước so sánh, đánh giá của mô hình, kiểm thử các chức năng Gợi ý theo tiêu chí Personalized hoặc tiêu chí Outfit)
+================================================================
+- Bước 1. Kiểm tra Python: khuyến nghị nên dùng Python 3.11.9 (tránh 3.12 vì lỗi).
+Thực hiện lệnh "python --version" để kiểm tra phiên bản Python đã cài đặt.
+- Bước 2. Mở Terminal và cd vào thư mục dự án "Novaware_BE".
+- Bước 3. Tạo môi trường ảo: "python -m venv venv" (hoặc tên khác).
+- Bước 4. Kích hoạt môi trường ảo
+   - PowerShell (Windows): ".\venv\Scripts\Activate.ps1"
+   - macOS/Linux: "source venv/bin/activate"
+   - Khi kích hoạt thành công sẽ thấy "(venv)" ở đầu dòng lệnh.
+- Bước 5. Nâng cấp pip: "python -m pip install --upgrade pip"
+- Bước 6. Cài đặt thư viện: "pip install -r requirements.txt"
+- Bước 7. Thực hiện Streamlit Application: 
+Sau khi đã kích hoạt môi trường ảo, thực hiện lệnh: "streamlit run app_recommendation.py". Mặc định Thực hiện trên port: http://localhost:8501/
+* Lệnh kết hợp (chạy venv + streamlit cùng 1 lệnh khi mở Terminal mới):
+   + PowerShell (Windows): ".\venv\Scripts\Activate.ps1; streamlit run app_recommendation.py"
+   + Bash/macOS/Linux: "source venv/bin/activate && streamlit run app_recommendation.py"
+- Bước 8: Sau Khi Thực hiện thành công Streamlit, hãy Thực hiện đầy đủ các bước trong Mục Algorithms & Steps 1 lần để hệ thống cập nhật dữ liệu cho việc gợi ý.
+- Bước 9: Sử dụng các chức năng trên Streamlit Application
+
+================================================================
+B. Thực hiện ứng dụng Novaware Web Application (Ứng dụng Web Clothes Store tích hợp tính năng gợi ý sản phẩm, outfit)
+================================================================
+Chú ý quan trọng: Để sử dụng được các API gợi ý, phải chạy ứng dụng Streamlit từ Bước 1 đến Bước 8 tối thiếu 1 lần trên máy.
+- Bước 1. Kiểm tra Python: khuyến nghị nên dùng Python 3.11.9 (tránh 3.12 vì lỗi).
+Thực hiện lệnh "python --version" để kiểm tra phiên bản Python đã cài đặt.
+- Bước 2. Mở Terminal và cd vào thư mục dự án "Novaware_BE".
+- Bước 3. Tạo môi trường ảo: "python -m venv venv" (hoặc tên khác).
+- Bước 4. Kích hoạt môi trường ảo:
+   - PowerShell (Windows): ".\venv\Scripts\Activate.ps1"
+   - macOS/Linux: "source venv/bin/activate"
+   - Khi kích hoạt thành công sẽ thấy "(venv)" ở đầu dòng lệnh.
+- Bước 5. Nâng cấp pip: "python -m pip install --upgrade pip"
+- Bước 6. Cài đặt thư viện: "pip install -r requirements.txt"
+- Bước 7. Thực hiện server (Django):
+Sau khi đã kích hoạt môi trường ảo, thực hiện lệnh: "python manage.py runserver". Mặc định Thực hiện trên port: "http://localhost:8000"
+* Lệnh kết hợp (chạy venv + server cùng 1 lệnh khi mở Terminal mới):
+   + PowerShell (Windows): ".\venv\Scripts\Activate.ps1; python manage.py runserver"
+   + Bash/macOS/Linux: "source venv/bin/activate && python manage.py runserver"
+- Bước 8. Kiểm tra Node.js. Cài đặt Node.js phiên bản 16 trở lên (khuyến nghị Node.js 18 hoặc 20).
+Thực hiện lệnh "node --version" để kiểm tra phiên bản Node.js.
+- Bước 9. Mở Terminal mới (khác Terminal của "Novaware_BE") và cd vào thư mục dự án "Novaware_FE".
+- Bước 10. Cài đặt dependencies:
+   - Nếu dùng npm: "npm install" (khuyến nghị)
+   - Nếu dùng pnpm: "pnpm install" 
+   - Nếu dùng yarn: "yarn install"
+- Bước 11. Thực hiện website (development mode):
+   - Nếu dùng npm: "npm run dev" (khuyến nghị)
+   - Nếu dùng pnpm: "pnpm dev" 
+   - Nếu dùng yarn: "yarn dev"
+- Bước 12. Launch Novaware Web Application tại port mặc định: "http://localhost:3000"
+- Bước 13: Có thể đăng nhập Web bằng TK User mẫu sau: 
+	User:	TK: quangvinhvinh@gmail.com
+		MK: Customer123!
+	Admin:	TK: adminnoware@gmail.com
+		MK: Admin123!

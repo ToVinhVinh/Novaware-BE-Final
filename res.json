@@ -1,0 +1,636 @@
+{
+    "personalized_products": [
+        {
+            "rank": 1,
+            "product_id": "10083",
+            "name": "Reebok Men Hanavi II Green Flip Flops",
+            "articleType": "Flip Flops",
+            "usage": "Casual",
+            "gender": "Men",
+            "hybrid_score": 0.1022,
+            "priority_score": 0.3122,
+            "highlights": "Ưu tiên do cùng usage • Phù hợp gender với sản phẩm đang xem • Trọng số lịch sử articleType • Trọng số lịch sử usage",
+            "product": {
+                "id": 10083,
+                "gender": "Men",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "Green",
+                "season": "Fall",
+                "year": 2011,
+                "usage": "Casual",
+                "productDisplayName": "Reebok Men Hanavi II Green Flip Flops",
+                "images": [
+                    "https://m.media-amazon.com/images/I/717ScWHoTAL._AC_SY500_.jpg"
+                ],
+                "rating": 4.7,
+                "sale": 12.1,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b3a91a5d3285a2ce40caa",
+                        "stock": 76,
+                        "color": "#FFA500",
+                        "size": "S",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a91a5d3285a2ce40cab",
+                        "stock": 27,
+                        "color": "#FFA500",
+                        "size": "M",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a91a5d3285a2ce40cac",
+                        "stock": 83,
+                        "color": "#FFA500",
+                        "size": "L",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cad",
+                        "stock": 35,
+                        "color": "#FFA500",
+                        "size": "XL",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cae",
+                        "stock": 76,
+                        "color": "#FFA500",
+                        "size": "XXL",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40caf",
+                        "stock": 27,
+                        "color": "#FFFFFF",
+                        "size": "S",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cb0",
+                        "stock": 58,
+                        "color": "#FFFFFF",
+                        "size": "M",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cb1",
+                        "stock": 67,
+                        "color": "#FFFFFF",
+                        "size": "L",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cb2",
+                        "stock": 68,
+                        "color": "#FFFFFF",
+                        "size": "XL",
+                        "price": 29.99
+                    },
+                    {
+                        "_id": "695b3a92a5d3285a2ce40cb3",
+                        "stock": 60,
+                        "color": "#FFFFFF",
+                        "size": "XXL",
+                        "price": 29.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:40.113000+00:00",
+                "updated_at": "2026-01-05T04:14:10.473000+00:00"
+            }
+        },
+        {
+            "rank": 2,
+            "product_id": "10166",
+            "name": "United Colors of Benetton Men Carribean Red Flip Flops",
+            "articleType": "Flip Flops",
+            "usage": "Casual",
+            "gender": "Men",
+            "hybrid_score": -0.086,
+            "priority_score": 0.124,
+            "highlights": "Ưu tiên do cùng usage • Phù hợp gender với sản phẩm đang xem • Trọng số lịch sử articleType • Trọng số lịch sử usage",
+            "product": {
+                "id": 10166,
+                "gender": "Men",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "Red",
+                "season": "Fall",
+                "year": 2011,
+                "usage": "Casual",
+                "productDisplayName": "United Colors of Benetton Men Carribean Red Flip Flops",
+                "images": [
+                    "https://m.media-amazon.com/images/I/71AjzfQZLyL._AC_SY500_.jpg"
+                ],
+                "rating": 4.7,
+                "sale": 12.7,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b3a42a5d3285a2ce408ef",
+                        "stock": 62,
+                        "color": "#FFA500",
+                        "size": "S",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f0",
+                        "stock": 27,
+                        "color": "#FFA500",
+                        "size": "M",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f1",
+                        "stock": 68,
+                        "color": "#FFA500",
+                        "size": "L",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f2",
+                        "stock": 15,
+                        "color": "#FFA500",
+                        "size": "XL",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f3",
+                        "stock": 36,
+                        "color": "#FFA500",
+                        "size": "XXL",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f4",
+                        "stock": 21,
+                        "color": "#FF0000",
+                        "size": "S",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f5",
+                        "stock": 94,
+                        "color": "#FF0000",
+                        "size": "M",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f6",
+                        "stock": 77,
+                        "color": "#FF0000",
+                        "size": "L",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f7",
+                        "stock": 63,
+                        "color": "#FF0000",
+                        "size": "XL",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f8",
+                        "stock": 27,
+                        "color": "#FF0000",
+                        "size": "XXL",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408f9",
+                        "stock": 45,
+                        "color": "#000000",
+                        "size": "S",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408fa",
+                        "stock": 17,
+                        "color": "#000000",
+                        "size": "M",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408fb",
+                        "stock": 49,
+                        "color": "#000000",
+                        "size": "L",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a42a5d3285a2ce408fc",
+                        "stock": 89,
+                        "color": "#000000",
+                        "size": "XL",
+                        "price": 63.99
+                    },
+                    {
+                        "_id": "695b3a43a5d3285a2ce408fd",
+                        "stock": 82,
+                        "color": "#000000",
+                        "size": "XXL",
+                        "price": 63.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:35.376000+00:00",
+                "updated_at": "2026-01-05T04:12:51.144000+00:00"
+            }
+        },
+        {
+            "rank": 3,
+            "product_id": "10179",
+            "name": "United Colors of Benetton Men Speeder Blue Flip Flops",
+            "articleType": "Flip Flops",
+            "usage": "Casual",
+            "gender": "Men",
+            "hybrid_score": -0.086,
+            "priority_score": 0.124,
+            "highlights": "Ưu tiên do cùng usage • Phù hợp gender với sản phẩm đang xem • Trọng số lịch sử articleType • Trọng số lịch sử usage",
+            "product": {
+                "id": 10179,
+                "gender": "Men",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "Blue",
+                "season": "Fall",
+                "year": 2011,
+                "usage": "Casual",
+                "productDisplayName": "United Colors of Benetton Men Speeder Blue Flip Flops",
+                "images": [
+                    "https://m.media-amazon.com/images/I/71i2nhSJkkL._AC_SX500_.jpg"
+                ],
+                "rating": 4.2,
+                "sale": 12.7,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b3b43a5d3285a2ce4155b",
+                        "stock": 56,
+                        "color": "#FFA500",
+                        "size": "S",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b43a5d3285a2ce4155c",
+                        "stock": 63,
+                        "color": "#FFA500",
+                        "size": "M",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b43a5d3285a2ce4155d",
+                        "stock": 73,
+                        "color": "#FFA500",
+                        "size": "L",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b43a5d3285a2ce4155e",
+                        "stock": 40,
+                        "color": "#FFA500",
+                        "size": "XL",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b43a5d3285a2ce4155f",
+                        "stock": 37,
+                        "color": "#FFA500",
+                        "size": "XXL",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b43a5d3285a2ce41560",
+                        "stock": 90,
+                        "color": "#00FF00",
+                        "size": "S",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b44a5d3285a2ce41561",
+                        "stock": 80,
+                        "color": "#00FF00",
+                        "size": "M",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b44a5d3285a2ce41562",
+                        "stock": 54,
+                        "color": "#00FF00",
+                        "size": "L",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b44a5d3285a2ce41563",
+                        "stock": 27,
+                        "color": "#00FF00",
+                        "size": "XL",
+                        "price": 33.99
+                    },
+                    {
+                        "_id": "695b3b44a5d3285a2ce41564",
+                        "stock": 53,
+                        "color": "#00FF00",
+                        "size": "XXL",
+                        "price": 33.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:50.586000+00:00",
+                "updated_at": "2026-01-05T04:17:08.422000+00:00"
+            }
+        },
+        {
+            "rank": 4,
+            "product_id": "10804",
+            "name": "Wrangler Men Rider Solid White Shirts",
+            "articleType": "Flip Flops",
+            "usage": "Casual",
+            "gender": "Men",
+            "hybrid_score": -0.086,
+            "priority_score": 0.124,
+            "highlights": "Ưu tiên do cùng usage • Phù hợp gender với sản phẩm đang xem • Trọng số lịch sử articleType • Trọng số lịch sử usage",
+            "product": {
+                "id": 10804,
+                "gender": "Men",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "White",
+                "season": "Fall",
+                "year": 2011,
+                "usage": "Casual",
+                "productDisplayName": "Wrangler Men Rider Solid White Shirts",
+                "images": [
+                    "https://res.cloudinary.com/dt6wmon6z/image/upload/v1763734151/10804_krweiy.jpg"
+                ],
+                "rating": 4.2,
+                "sale": 14.0,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b39aca5d3285a2ce401dd",
+                        "stock": 90,
+                        "color": "#FF0000",
+                        "size": "S",
+                        "price": 90.99
+                    },
+                    {
+                        "_id": "695b39aca5d3285a2ce401de",
+                        "stock": 48,
+                        "color": "#FF0000",
+                        "size": "M",
+                        "price": 90.99
+                    },
+                    {
+                        "_id": "695b39aca5d3285a2ce401df",
+                        "stock": 69,
+                        "color": "#FF0000",
+                        "size": "L",
+                        "price": 90.99
+                    },
+                    {
+                        "_id": "695b39aca5d3285a2ce401e0",
+                        "stock": 92,
+                        "color": "#FF0000",
+                        "size": "XL",
+                        "price": 90.99
+                    },
+                    {
+                        "_id": "695b39aca5d3285a2ce401e1",
+                        "stock": 57,
+                        "color": "#FF0000",
+                        "size": "XXL",
+                        "price": 90.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:26.577000+00:00",
+                "updated_at": "2026-01-05T04:10:20.327000+00:00"
+            }
+        },
+        {
+            "rank": 5,
+            "product_id": "10157",
+            "name": "Puma Unisex Puma Flips Blue Flip Flops",
+            "articleType": "Flip Flops",
+            "usage": "Casual",
+            "gender": "Unisex",
+            "hybrid_score": -0.086,
+            "priority_score": 0.094,
+            "highlights": "Ưu tiên do cùng usage • Unisex phù hợp với sản phẩm đang xem • Trọng số lịch sử articleType • Trọng số lịch sử usage",
+            "product": {
+                "id": 10157,
+                "gender": "Unisex",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "Blue",
+                "season": "Fall",
+                "year": 2011,
+                "usage": "Casual",
+                "productDisplayName": "Puma Unisex Puma Flips Blue Flip Flops",
+                "images": [
+                    "https://m.media-amazon.com/images/I/61K4mZ9W0tL._AC_SY500_.jpg"
+                ],
+                "rating": 4.9,
+                "sale": 4.1,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b3a38a5d3285a2ce40872",
+                        "stock": 59,
+                        "color": "#000000",
+                        "size": "S",
+                        "price": 60.99
+                    },
+                    {
+                        "_id": "695b3a38a5d3285a2ce40873",
+                        "stock": 52,
+                        "color": "#000000",
+                        "size": "M",
+                        "price": 60.99
+                    },
+                    {
+                        "_id": "695b3a38a5d3285a2ce40874",
+                        "stock": 20,
+                        "color": "#000000",
+                        "size": "L",
+                        "price": 60.99
+                    },
+                    {
+                        "_id": "695b3a38a5d3285a2ce40875",
+                        "stock": 69,
+                        "color": "#000000",
+                        "size": "XL",
+                        "price": 60.99
+                    },
+                    {
+                        "_id": "695b3a38a5d3285a2ce40876",
+                        "stock": 61,
+                        "color": "#000000",
+                        "size": "XXL",
+                        "price": 60.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:34.795000+00:00",
+                "updated_at": "2026-01-05T04:12:40.615000+00:00"
+            }
+        },
+        {
+            "rank": 6,
+            "product_id": "10739",
+            "name": "Disney Unisex Kids Basic Black Flip Flops",
+            "articleType": "Flip Flops",
+            "usage": "Kids",
+            "gender": "Unisex",
+            "hybrid_score": -0.2056,
+            "priority_score": -0.1456,
+            "highlights": "Unisex phù hợp với sản phẩm đang xem • Trọng số lịch sử articleType",
+            "product": {
+                "id": 10739,
+                "gender": "Unisex",
+                "masterCategory": "Footwear",
+                "subCategory": "Flip Flops",
+                "articleType": "Flip Flops",
+                "baseColour": "Black",
+                "season": "Winter",
+                "year": 2012,
+                "usage": "Kids",
+                "productDisplayName": "Disney Unisex Kids Basic Black Flip Flops",
+                "images": [
+                    "https://res.cloudinary.com/dt6wmon6z/image/upload/v1763734066/10739_hazce0.jpg"
+                ],
+                "rating": 4.4,
+                "sale": 12.4,
+                "reviews": [],
+                "variants": [
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c2",
+                        "stock": 64,
+                        "color": "#FFFF00",
+                        "size": "S",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c3",
+                        "stock": 72,
+                        "color": "#FFFF00",
+                        "size": "M",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c4",
+                        "stock": 39,
+                        "color": "#FFFF00",
+                        "size": "L",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c5",
+                        "stock": 87,
+                        "color": "#FFFF00",
+                        "size": "XL",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c6",
+                        "stock": 42,
+                        "color": "#FFFF00",
+                        "size": "XXL",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c7",
+                        "stock": 50,
+                        "color": "#0000FF",
+                        "size": "S",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c8",
+                        "stock": 46,
+                        "color": "#0000FF",
+                        "size": "M",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408c9",
+                        "stock": 10,
+                        "color": "#0000FF",
+                        "size": "L",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408ca",
+                        "stock": 35,
+                        "color": "#0000FF",
+                        "size": "XL",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408cb",
+                        "stock": 38,
+                        "color": "#0000FF",
+                        "size": "XXL",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408cc",
+                        "stock": 73,
+                        "color": "#808080",
+                        "size": "S",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408cd",
+                        "stock": 22,
+                        "color": "#808080",
+                        "size": "M",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408ce",
+                        "stock": 14,
+                        "color": "#808080",
+                        "size": "L",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408cf",
+                        "stock": 26,
+                        "color": "#808080",
+                        "size": "XL",
+                        "price": 79.99
+                    },
+                    {
+                        "_id": "695b3a3fa5d3285a2ce408d0",
+                        "stock": 82,
+                        "color": "#808080",
+                        "size": "XXL",
+                        "price": 79.99
+                    }
+                ],
+                "created_at": "2026-01-03T12:50:35.183000+00:00",
+                "updated_at": "2026-01-05T04:12:47.953000+00:00"
+            }
+        }
+    ],
+    "outfits": [],
+    "metadata": {
+        "user_id": "690bf40623150d4eec246874",
+        "current_product_id": "10180",
+        "alpha": 0.5,
+        "top_k_personalized": 6,
+        "top_k_outfit": 1,
+        "allowed_genders": [
+            "Men",
+            "Unisex"
+        ],
+        "user_age": 21,
+        "user_gender": "male"
+    }
+}

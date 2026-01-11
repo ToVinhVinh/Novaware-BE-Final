@@ -1,0 +1,190 @@
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Optional
+
+import mongoengine as me
+from mongoengine import fields
+
+class Category(me.Document):
+
+    meta = {
+        "collection": "categories",
+        "indexes": ["name"],
+        "strict": False,
+    }
+
+    name = fields.StringField(required=True, unique=True, max_length=255)
+    created_at = fields.DateTimeField(default=datetime.utcnow)
+    updated_at = fields.DateTimeField(default=datetime.utcnow)
+
+    def save(self, *args, **kwargs):
+        self.updated_at = datetime.utcnow()
+        return super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.name
+
+class Color(me.Document):
+
+    meta = {
+        "collection": "colors",
+        "indexes": ["name", "hex_code"],
+        "strict": False,
+    }
+
+    name = fields.StringField(required=True, unique=True, max_length=100)
+    hex_code = fields.StringField(required=True, max_length=7)
+
+    def __str__(self) -> str:
+        return f"{self.name} ({self.hex_code})"
+
+class Size(me.Document):
+
+    meta = {
+        "collection": "sizes",
+        "indexes": ["name", "code"],
+        "strict": False,
+    }
+
+    name = fields.StringField(required=True, unique=True, max_length=100)
+    code = fields.StringField(required=True, unique=True, max_length=10)
+    created_at = fields.DateTimeField(default=datetime.utcnow)
+    updated_at = fields.DateTimeField(default=datetime.utcnow)
+
+    def save(self, *args, **kwargs):
+        self.updated_at = datetime.utcnow()
+        return super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.code
+
+class Product(me.Document):
+
+    meta = {
+        "collection": "products",
+        "indexes": [
+            "gender",
+            "masterCategory",
+            "subCategory",
+            "productDisplayName",
+            "name",
+            "slug",
+        ],
+        "strict": False,
+    }
+
+    id = fields.IntField(primary_key=True)
+    gender = fields.StringField(max_length=50)
+    masterCategory = fields.StringField(max_length=255)
+    subCategory = fields.StringField(max_length=255)
+    articleType = fields.StringField(max_length=255)
+    baseColour = fields.StringField(max_length=100)
+    season = fields.StringField(max_length=50)
+    year = fields.IntField()
+    usage = fields.StringField(max_length=100)
+    productDisplayName = fields.StringField(max_length=255)
+
+    name = fields.StringField(max_length=255)
+    slug = fields.StringField(max_length=255)
+    description = fields.StringField()
+    category_id = fields.ObjectIdField()
+    price = fields.DecimalField(default=0.0, precision=10, decimal_places=2)
+    size = fields.DictField(default=dict)
+    outfit_tags = fields.ListField(fields.StringField(), default=list)
+    feature_vector = fields.ListField(fields.FloatField(), default=list)
+    color_ids = fields.ListField(fields.ObjectIdField(), default=list)
+    compatible_product_ids = fields.ListField(fields.StringField(), default=list)
+    user_id = fields.ObjectIdField()
+    num_reviews = fields.IntField(default=0)
+    count_in_stock = fields.IntField(default=0)
+
+    images = fields.ListField(fields.StringField(), default=list)
+    rating = fields.FloatField(default=0.0, min_value=0.0, max_value=5.0)
+    sale = fields.DecimalField(default=0.0, precision=5, decimal_places=2)
+
+    created_at = fields.DateTimeField(default=datetime.utcnow)
+    updated_at = fields.DateTimeField(default=datetime.utcnow)
+
+    def save(self, *args, **kwargs):
+        self.updated_at = datetime.utcnow()
+        return super().save(*args, **kwargs)
+
+    def update_stock_from_variants(self):
+        try:
+            variants = ProductVariant.objects(product_id=self.id)
+            total_stock = sum(variant.stock for variant in variants)
+            self.count_in_stock = total_stock
+            self.save()
+        except Exception:
+            pass
+
+    def __str__(self) -> str:
+        return self.productDisplayName or self.name or f"Product {self.id}"
+
+class ProductVariant(me.Document):
+
+    meta = {
+        "collection": "product_variants",
+        "indexes": ["product_id", "color", "size"],
+        "strict": False,
+    }
+
+    product_id = fields.IntField(required=True)
+    color = fields.StringField(required=True, max_length=7)
+    size = fields.StringField(required=True, max_length=10)
+    price = fields.DecimalField(required=True, precision=10, decimal_places=2)
+    stock = fields.IntField(default=0, min_value=0)
+
+    def __str__(self) -> str:
+        return f"{self.product_id} - {self.color} / {self.size}"
+
+class ProductReview(me.Document):
+
+    meta = {
+        "collection": "product_reviews",
+        "indexes": ["product_id", "user_id", "created_at"],
+        "strict": False,
+    }
+
+    product_id = fields.IntField(required=True)
+    user_id = fields.ObjectIdField(required=True)
+    name = fields.StringField(required=True, max_length=255)
+    rating = fields.IntField(required=True, min_value=1, max_value=5)
+    comment = fields.StringField(required=True)
+    created_at = fields.DateTimeField(default=datetime.utcnow)
+    updated_at = fields.DateTimeField(default=datetime.utcnow)
+
+    def save(self, *args, **kwargs):
+        self.updated_at = datetime.utcnow()
+        return super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return f"Review for {self.product_id} by {self.user_id}"
+
+class ContentSection(me.Document):
+
+    meta = {
+        "collection": "content_sections",
+        "indexes": ["type", "created_at"],
+        "strict": False,
+    }
+
+    type = fields.StringField(required=True, max_length=100)
+    images = fields.ListField(fields.StringField(), default=list)
+    image = fields.StringField(max_length=500)
+    subtitle = fields.StringField(max_length=255)
+    title = fields.StringField(max_length=255)
+    button_text = fields.StringField(max_length=100)
+    button_link = fields.StringField(max_length=500)
+    position = fields.StringField(max_length=100)
+    created_at = fields.DateTimeField(default=datetime.utcnow)
+    updated_at = fields.DateTimeField(default=datetime.utcnow)
+
+    def save(self, *args, **kwargs):
+        self.updated_at = datetime.utcnow()
+        return super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.title or self.type
+

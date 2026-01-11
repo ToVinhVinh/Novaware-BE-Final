@@ -1,0 +1,230 @@
+from __future__ import annotations
+
+from bson import ObjectId
+from rest_framework import serializers
+
+from .mongo_models import Order, OrderItem, ShippingAddress
+
+def get_product_review_serializer():
+    from apps.products.mongo_serializers import ProductReviewSerializer
+    return ProductReviewSerializer
+
+def get_product_review_model():
+    from apps.products.mongo_models import ProductReview
+    return ProductReview
+
+class OrderItemSerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+    name = serializers.CharField()
+    qty = serializers.IntegerField()
+    size_selected = serializers.CharField()
+    color_selected = serializers.CharField()
+    images = serializers.ListField(child=serializers.CharField())
+    price_sale = serializers.DecimalField(max_digits=10, decimal_places=2)
+
+    def to_representation(self, instance):
+        return {
+            "product_id": instance.product_id,
+            "name": instance.name,
+            "qty": instance.qty,
+            "size_selected": instance.size_selected,
+            "color_selected": instance.color_selected,
+            "images": instance.images,
+            "price_sale": float(instance.price_sale),
+        }
+
+    def to_internal_value(self, data):
+        # Convert camelCase to snake_case
+        converted_data = {}
+        field_mapping = {
+            "product": "product_id",
+            "productId": "product_id",
+            "sizeSelected": "size_selected",
+            "colorSelected": "color_selected",
+            "priceSale": "price_sale",
+        }
+        
+        for key, value in data.items():
+            # Convert camelCase keys to snake_case
+            if key in field_mapping:
+                converted_data[field_mapping[key]] = value
+            else:
+                # Already in snake_case or other fields
+                converted_data[key] = value
+        
+        validated = super().to_internal_value(converted_data)
+        # Convert product_id to integer (products use integer IDs, not ObjectIds)
+        if "product_id" in validated:
+            validated["product_id"] = int(validated["product_id"])
+        validated["price_sale"] = validated["price_sale"]
+        return validated
+
+class ShippingAddressSerializer(serializers.Serializer):
+    address = serializers.CharField()
+    city = serializers.CharField()
+    postal_code = serializers.CharField()
+    country = serializers.CharField()
+    recipient_phone_number = serializers.CharField()
+
+    def to_representation(self, instance):
+        if instance is None:
+            return None
+        return {
+            "address": instance.address,
+            "city": instance.city,
+            "postal_code": instance.postal_code,
+            "country": instance.country,
+            "recipient_phone_number": instance.recipient_phone_number,
+        }
+
+    def to_internal_value(self, data):
+        # Convert camelCase to snake_case
+        converted_data = {}
+        field_mapping = {
+            "postalCode": "postal_code",
+            "recipientPhoneNumber": "recipient_phone_number",
+        }
+        
+        for key, value in data.items():
+            if key in field_mapping:
+                converted_data[field_mapping[key]] = value
+            else:
+                converted_data[key] = value
+        
+        return super().to_internal_value(converted_data)
+
+class OrderSerializer(serializers.Serializer):
+    id = serializers.SerializerMethodField()
+    user_id = serializers.CharField(write_only=True, required=False)
+    payment_method = serializers.CharField()
+    payment_result = serializers.DictField(default=dict)
+    tax_price = serializers.DecimalField(max_digits=10, decimal_places=2)
+    shipping_price = serializers.DecimalField(max_digits=10, decimal_places=2)
+    total_price = serializers.DecimalField(max_digits=10, decimal_places=2)
+    is_paid = serializers.BooleanField(read_only=True)
+    paid_at = serializers.DateTimeField(read_only=True, allow_null=True)
+    is_delivered = serializers.BooleanField(read_only=True)
+    delivered_at = serializers.DateTimeField(read_only=True, allow_null=True)
+    is_cancelled = serializers.BooleanField(read_only=True)
+    is_processing = serializers.BooleanField(read_only=True)
+    confirmed_at = serializers.DateTimeField(read_only=True, allow_null=True)
+    is_outfit_purchase = serializers.BooleanField(required=False, default=False)
+    created_at = serializers.DateTimeField(read_only=True)
+    updated_at = serializers.DateTimeField(read_only=True)
+    items = OrderItemSerializer(many=True)
+    shipping_address = ShippingAddressSerializer()
+
+    def to_internal_value(self, data):
+        # Convert camelCase to snake_case
+        converted_data = {}
+        field_mapping = {
+            "orderItems": "items",
+            "paymentMethod": "payment_method",
+            "paymentResult": "payment_result",
+            "itemsPrice": "items_price",  # Will be ignored if not in model
+            "taxPrice": "tax_price",
+            "shippingPrice": "shipping_price",
+            "totalPrice": "total_price",
+            "isOutfitPurchase": "is_outfit_purchase",
+            "shippingAddress": "shipping_address",
+        }
+        
+        for key, value in data.items():
+            if key in field_mapping:
+                converted_data[field_mapping[key]] = value
+            else:
+                converted_data[key] = value
+        
+        # Remove items_price if present (not in model)
+        converted_data.pop("items_price", None)
+        
+        return super().to_internal_value(converted_data)
+
+    def get_id(self, obj):
+        return str(obj.id)
+
+    def to_representation(self, instance):
+        ProductReview = get_product_review_model()
+        ProductReviewSerializer = get_product_review_serializer()
+
+        items_representation = []
+        for item in instance.items:
+            item_data = OrderItemSerializer(item).to_representation(item)
+            
+            # Fetch reviews for this product by this user
+            try:
+                reviews = ProductReview.objects(
+                    product_id=item.product_id,
+                    user_id=instance.user_id
+                )
+                item_data["reviews"] = ProductReviewSerializer(reviews, many=True).data
+            except Exception:
+                item_data["reviews"] = []
+                
+            items_representation.append(item_data)
+
+        data = {
+            "id": str(instance.id),
+            "user_id": str(instance.user_id),
+            "payment_method": instance.payment_method,
+            "payment_result": instance.payment_result,
+            "tax_price": float(instance.tax_price),
+            "shipping_price": float(instance.shipping_price),
+            "total_price": float(instance.total_price),
+            "is_paid": instance.is_paid,
+            "paid_at": instance.paid_at,
+            "is_delivered": instance.is_delivered,
+            "delivered_at": instance.delivered_at,
+            "is_cancelled": instance.is_cancelled,
+            "is_processing": instance.is_processing,
+            "confirmed_at": instance.confirmed_at,
+            "is_outfit_purchase": instance.is_outfit_purchase,
+            "created_at": instance.created_at,
+            "updated_at": instance.updated_at,
+            "items": items_representation,
+            "shipping_address": ShippingAddressSerializer(instance.shipping_address).to_representation(instance.shipping_address) if instance.shipping_address else None,
+        }
+        return data
+
+    def create(self, validated_data):
+        items_data = validated_data.pop("items")
+        shipping_data = validated_data.pop("shipping_address")
+
+        if "user_id" in validated_data:
+            validated_data["user_id"] = ObjectId(validated_data["user_id"])
+
+        order_items = []
+        for item_data in items_data:
+            # product_id is already converted to integer in OrderItemSerializer.to_internal_value
+            order_items.append(OrderItem(**item_data))
+
+        shipping_address = ShippingAddress(**shipping_data) if shipping_data else None
+
+        order = Order(
+            items=order_items,
+            shipping_address=shipping_address,
+            **validated_data
+        )
+        order.save()
+        return order
+
+    def update(self, instance, validated_data):
+        items_data = validated_data.pop("items", None)
+        shipping_data = validated_data.pop("shipping_address", None)
+
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+
+        if shipping_data:
+            instance.shipping_address = ShippingAddress(**shipping_data)
+
+        if items_data is not None:
+            order_items = []
+            for item_data in items_data:
+                # product_id is already converted to integer in OrderItemSerializer.to_internal_value
+                order_items.append(OrderItem(**item_data))
+            instance.items = order_items
+
+        instance.save()
+        return instance
+
